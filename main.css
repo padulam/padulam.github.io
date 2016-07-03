@@ -1,0 +1,164 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.center-me {
+  position: absolute;
+  top: 55%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+}
+
+#projectContainer{
+  min-width:200px;
+  max-width:800px;
+  text-align:center;
+  margin:0 auto;
+  padding:0;
+}
+
+#Home {
+  background-image: url("https://static.pexels.com/photos/913/sea-nature-sunny-beach.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+#About {
+  align-items: center;
+  display: flex;
+  background-color: #c9c9c9;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+#Contact {
+  background-color: #9ad3de;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+#Projects {
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  min-height: 100%;
+  min-width: 100%;
+  background-color: #89bdd3;
+}
+
+#Welcome {
+  color: white;
+  text-align: center important!;
+  font-size: 3em;
+  font-family: "Pacifico", Helvetica, sans-serif;
+}
+
+#About p,
+img {
+  margin: 0 auto;
+  padding: 15px;
+}
+
+#About h2 {
+  margin-top: 5%;
+}
+
+#Projects h2 {
+  margin: 10% 5% 5% 5%;
+  text-align: center;
+}
+
+.white-text {
+  color: white;
+}
+
+button:focus {
+  outline: 0 !important;
+}
+
+a {
+  color: inherit;
+}
+
+#alignBtnCenter {
+  text-align: center;
+  margin: 10%;
+}
+
+.caption-style-1 {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  text-align:center;
+}
+
+.pic-item{
+  display:inline-block;
+  margin:3%;
+}
+
+iframe{
+  width:300px;
+  height:200px;
+}
+
+.caption-style-1 li:hover .caption {
+  opacity: 1;
+}
+
+.caption-style-1 iframe {
+  margin: 0px;
+  padding: 0px;
+  float: left;
+  z-index: 4;
+}
+
+.caption-style-1 .caption {
+  cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: all 0.45s ease-in-out;
+  -moz-transition: all 0.45s ease-in-out;
+  -o-transition: all 0.45s ease-in-out;
+  -ms-transition: all 0.45s ease-in-out;
+  transition: all 0.45s ease-in-out;
+}
+
+.caption-style-1 .blur {
+  background-color: rgba(0, 0, 0, 0.65);
+  height: 200px;
+  width: 300px;
+  z-index: 5;
+  position: absolute;
+}
+
+.caption-style-1 .caption-text h1 {
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+.caption-style-1 .caption-text {
+  z-index: 10;
+  color: #fff;
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  text-align: center;
+  top: 100px;
+}
+
+#Contact h2 {
+  text-align: center;
+  margin-top: 30%;
+}
