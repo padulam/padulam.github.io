@@ -1,13 +1,12 @@
 {
-  "name": "portfolio",
+  "name": "Portfolio",
   "homepage": "https://github.com/padulam/padulam.github.io",
   "authors": [
     "padulam <padula.matthew@gmail.com>"
   ],
-  "description": "This is a portfolio of all the projects I have completed.",
+  "description": "This is a portfolio of all the projects I've completed.",
   "main": "index.html",
   "license": "MIT",
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -16,7 +15,6 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "^3.0.0",
     "bootstrap": "^3.3.6"
   }
 }
