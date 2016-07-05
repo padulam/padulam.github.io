@@ -33,7 +33,7 @@ class ProjectList extends React.Component {
 			method: 'GET',
 			url: projectUrl,
 			success: (projects)=>{
-				this.setState({projects: JSON.parse(projects)})
+				this.setState({projects: projects})
 			}
 		})
 	}
