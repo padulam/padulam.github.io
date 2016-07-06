@@ -32,6 +32,7 @@ class ProjectList extends React.Component {
 		$.ajax({
 			method: 'GET',
 			url: projectUrl,
+			dataType: "json",
 			success: (projects)=>{
 				this.setState({projects: projects})
 			}
