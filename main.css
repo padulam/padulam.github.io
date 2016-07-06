@@ -2,60 +2,45 @@ html,
 body {
   height: 100%;
   width: 100%;
-}
-
-.center-me {
-  position: absolute;
-  top: 55%;
-  left: 55%;
-  transform: translate(-50%, -50%);
+  /*padding-top:20px;*/
 }
 
 #projectContainer{
   min-width:200px;
   text-align:center;
-  margin:0 auto;
+  margin:3% auto;
   padding:0;
+}
+
+.main-section{
+  min-height: 100%;
+  min-width: 100%;
+  padding: 80px;
 }
 
 #Home {
   background-color: #303D8D;
-  min-height: 100%;
-  min-width: 100%;
+  text-align: center;
 }
 
 #About {
   align-items: center;
   display: flex;
   background-color: #353D6A;
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  min-height: 100%;
-  min-width: 100%;
 }
 
 #Contact {
   background-color: #CDA132;
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  min-height: 100%;
-  min-width: 100%;
+  text-align:center;
 }
 
 #Projects {
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  min-height: 100%;
-  min-width: 100%;
   background-color: #6472C6;
 }
 
 #Welcome {
   color: white;
-  text-align: center important!;
+  margin-top:20%;
   font-size: 3em;
   font-family: "Pacifico", Helvetica, sans-serif;
 }
@@ -71,7 +56,7 @@ img {
 }
 
 #Projects h2 {
-  margin: 10% 5% 5% 5%;
+  margin-top: 5%;
   text-align: center;
 }
 
@@ -83,13 +68,12 @@ button:focus {
   outline: 0 !important;
 }
 
-a {
-  color: inherit;
+.git-button{
+  margin-top:2%;
 }
 
-#alignBtnCenter {
-  text-align: center;
-  margin: 10%;
+a {
+  color: inherit;
 }
 
 .caption-style-1 {
@@ -155,6 +139,5 @@ a {
 }
 
 #Contact h2 {
-  text-align: center;
-  margin-top: 30%;
+  margin-top: 20%;
 }
