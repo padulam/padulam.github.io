@@ -2,7 +2,7 @@ html,
 body {
   height: 100%;
   width: 100%;
-  /*padding-top:20px;*/
+  font-size: 16px;
 }
 
 #projectContainer{
@@ -64,12 +64,9 @@ img {
   color: white;
 }
 
-button:focus {
-  outline: 0 !important;
-}
-
 .git-button{
   margin-top:2%;
+  background-color: white;
 }
 
 a {
