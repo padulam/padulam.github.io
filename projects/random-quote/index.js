@@ -1,32 +1,35 @@
 $('button').click(function() {
 	$.ajax({
-		url: 'http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?',
+		url: 'https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=success',
 		type: 'GET',
-		dataType: 'json',
-		success: function(data){
-			if($("#quote").html()!==""){
-				$("#quote").fadeOut('slow', function() {
-					$(this).html(data.quoteText);
-					$(this).fadeIn('fast');
-				});
-				
-				$("#author").fadeOut('slow', function() {
-					$(this).html(data.quoteAuthor);
-					$(this).fadeIn('fast');
-				});
-			} else{
-				$("#quote").fadeOut('fast', function() {
-					$(this).html(data.quoteText);
-					$(this).fadeIn('fast');
-				});
-				
-				$("#author").fadeOut('fast', function() {
-					$(this).html(data.quoteAuthor);
-					$(this).fadeIn('fast');
-					$('#tweet-quote').attr('href', "https://twitter.com/intent/tweet?text=" + data.quoteText + "- " 
-				+ data.quoteAuthor).css('visibility', 'visible');
-				});
-			}
-		}
+		dataType: 'jsonp',
 	});
 });
+
+function quoteGenerator(rsp){
+	let data = rsp[0];
+
+	if($("#quote").html()!==""){
+		$("#quote").fadeOut('slow', function() {
+			$(this).html(data.content);
+			$(this).fadeIn('fast');
+		});
+		
+		$("#author").fadeOut('slow', function() {
+			$(this).html(data.title);
+			$(this).fadeIn('fast');
+		});
+	} else{
+		$("#quote").fadeOut('fast', function() {
+			$(this).html(data.content);
+			$(this).fadeIn('fast');
+		});
+		
+		$("#author").fadeOut('fast', function() {
+			$(this).html(data.title);
+			$(this).fadeIn('fast');
+			$('#tweet-quote').attr('href', "https://twitter.com/intent/tweet?text=" + data.content + "- " 
+		+ data.title).css('visibility', 'visible');
+		});
+	}
+}
