@@ -1,0 +1,45 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #5a5c51;
+  color: white;
+}
+
+#tweet-quote{
+  visibility:hidden;
+}
+
+#cover{
+  text-align:center;
+  margin-top:15%;
+  padding:100px 50px;
+}
+
+#quote {
+  font-family: 'Playfair Display', serif;
+}
+
+.ghost-button {
+  color: white;
+  background-color: #5a5c51;
+  border: 1px solid white;
+  font-size: 17px;
+  padding: 7px 12px;
+  font-weight: normal;
+  margin: 6px 12px 0 0;
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  min-width: 120px;
+}
+
+.ghost-button:hover,
+.ghost-button:focus {
+  background-color: white;
+  color: #5a5c51;
+}
+
+.ghost-button:focus {
+  outline:none;
+}
