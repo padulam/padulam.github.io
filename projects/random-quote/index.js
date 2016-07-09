@@ -8,10 +8,11 @@ $('button').click(function() {
 
 function quoteGenerator(rsp){
 	let data = rsp[0];
+	let quote = $(data.content).html();
 
 	if($("#quote").html()!==""){
 		$("#quote").fadeOut('slow', function() {
-			$(this).html(data.content);
+			$(this).html(quote);
 			$(this).fadeIn('fast');
 		});
 		
@@ -21,15 +22,17 @@ function quoteGenerator(rsp){
 		});
 	} else{
 		$("#quote").fadeOut('fast', function() {
-			$(this).html(data.content);
+			$(this).html(quote);
 			$(this).fadeIn('fast');
 		});
 		
 		$("#author").fadeOut('fast', function() {
 			$(this).html(data.title);
 			$(this).fadeIn('fast');
-			$('#tweet-quote').attr('href', "https://twitter.com/intent/tweet?text=" + data.content + "- " 
-		+ data.title).css('visibility', 'visible');
 		});
+
+		$('#tweet-quote').css('visibility', 'visible');
 	}
+	$('#tweet-quote').attr('href', "https://twitter.com/intent/tweet?text=" + encodeURI(quote) + "- " 
+		+ data.title);
 }
