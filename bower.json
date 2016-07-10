@@ -17,8 +17,9 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "react": "^15.2.0",
-    "jQuery": "2.2.4",
     "bootstrap-social": "^5.0.0",
-    "babel": "*"
+    "babel": "*",
+    "weather-icons": "^2.0.10",
+    "jquery":"2.2.4"
   }
 }
