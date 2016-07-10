@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Local Weather App</title>
+	<link rel="stylesheet" type="text/css" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../bower_components/bootstrap-social/bootstrap-social.css">
+	<link rel="stylesheet" type="text/css" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../../bower_components/weather-icons/css/weather-icons.min.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Happy+Monkey">
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<div id="mainScreen" class="container">
+		<div class="row">
+			<h1 id="title">Local Weather</h1>
+		</div>
+		<div class="row" id="weatherData">
+			<img id="weatherPic" class="text-center"/>
+			<h2 id="temp"></h2>
+			<h2 id="weatherDescription"></h2>
+			<h2 id="location"></h2>
+			<button class="btn fahrenheit ghost-button" id="unitOfDegrees">Switch to Celsius</button>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
