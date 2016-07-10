@@ -2,13 +2,13 @@ var temperature;
 
 $(document).ready(function() {
   var zip;
-  var getZip = $.get("http://ipinfo.io", function(response) {
-    zip = response.postal;
-    $('#location').html(response.city + " , " + response.region);
+  var getZip = $.get("https://freegeoip.net/json/", function(response) {
+    zip = response.zip_code;
+    $('#location').html(response.city + " , " + response.region_name);
   }, "jsonp");
 
   $.when(getZip).done(function() {
-    $.get("http://api.openweathermap.org/data/2.5/weather?zip=" + zip + ",us&APPID=5cb4268e79277a890113e3dff474cba8", function(response) {
+    $.get("//api.openweathermap.org/data/2.5/weather?zip=" + zip + ",us&APPID=5cb4268e79277a890113e3dff474cba8", function(response) {
       var backgroundURL;
       var weatherBackground = {
         snow: '../../images/cold-snow-landscape-nature.jpg',
@@ -20,7 +20,7 @@ $(document).ready(function() {
       };
 
       var d = new Date();
-      var weatherIcon = "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
+      var weatherIcon = "//openweathermap.org/img/w/" + response.weather[0].icon + ".png";
       temperature = response.main.temp;
 
       if (d.getHours() >= 18) {
