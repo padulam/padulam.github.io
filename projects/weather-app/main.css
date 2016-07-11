@@ -11,6 +11,10 @@ button:focus{
   color:black;
 }
 
+footer{
+  background-color: #000000;
+}
+
 #mainScreen{
   background-size:cover;
   min-height:100%;
@@ -23,12 +27,6 @@ button:focus{
     margin:2% auto;
     padding:15px;
     max-width:400px;
-    border-radius:10px;
-}
-
-#weatherData img{
-    background-color:rgba(88,89,89,.9);
-    padding:15px;
     border-radius:10px;
 }
 
