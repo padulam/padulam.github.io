@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pomodoro Clock</title>
+	<link rel="stylesheet" type="text/css" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=News+Cycle">
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<div class="container-fluid clock">
+	  <h1 class="title">Pomodoro Clock</h1>
+	  <div class="row">
+	    <div class="container" id="timerDiv">
+	      <label for="mainTimer">Session</label>
+	      <br/>
+	      <input id="mainTimer" readonly/>
+	    </div>
+	  </div>
+	  <div class="row">
+	    <div class="container" id="counterDiv">
+			<div class="form-group col-sm-6">
+				<label for="break">Break Length</label>
+				<br/>
+				<button class="counter-button" id="downBreak">-</button>
+				<input id="break" value=5 readonly/>
+				<button class="counter-button" id="upBreak">+</button>
+			</div>
+		    <div class="form-group col-sm-6">
+		      <label for="session">Session Length</label>
+		      <br/>
+		      <button class="counter-button" id="downSession">-</button>
+		      <input id="session" value="25" readonly/>
+		      <button class="counter-button" id="upSession">+</button>
+		    </div>
+	  	</div>
+	  </div>
+	  <div class="row">
+	    <button class="ghost-button" id="start">Start</button>
+	    <button class="ghost-button" id="stop">Stop</button>
+	    <button class="ghost-button" id="reset">Reset</button>
+	  </div>
+	</div>
+	<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
