@@ -39,7 +39,7 @@ function setMainTimer() {
 function countSet(e, up) {
   var counterVal = parseInt($(e).val())
 
-  if (up === true) {
+  if (up) {
     $(e).val(counterVal + 1);
   } else {
     if (counterVal > 1) {

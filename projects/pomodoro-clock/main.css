@@ -1,7 +1,5 @@
 html,
 body {
-  width: 100%;
-  height: 100%;
   background-color: #8BC5BF;
   font-family: 'News Cycle', sans-serif;
   color:white;
@@ -35,13 +33,6 @@ body {
   color: #8BC5BF;
 }
 
-#timerDiv {
-  margin: 0 auto;
-  max-width: 400px;
-  min-width: 200px;
-  padding: 20px;
-}
-
 #counterDiv {
   max-width: 50%;
   text-align: center;
@@ -65,8 +56,7 @@ button:focus {
 
 #mainTimer {
   font-size: 3em;
-  min-width: 50% !important;
-  max-width: 60% !important;
+  width:250px;
   text-align: center;
 }
 
