@@ -19,9 +19,9 @@
 	},
 	{
 		"id": 4,
-		"name": "TwitchTv API App",
-		"url": "http://codepen.io/padulam/full/WQoXbJ/",
-		"screenshot": "images/twitchtv_api.png"
+		"name": "Twitch API App",
+		"url": "projects/twitch-app/index.html",
+		"screenshot": "images/twitch_api.png"
 	},
 	{
 		"id": 5,

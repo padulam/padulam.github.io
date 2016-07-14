@@ -1,0 +1,90 @@
+html,
+body{
+  height:100%;
+  width:100%;
+}
+
+a{
+  color:inherit;
+}
+
+#statusContainer {
+  width: 300px;
+  background-color: white;
+  min-height: 100%;
+  margin-bottom:3%;
+}
+
+label {
+  font-weight: normal;
+  color: silver;
+  font-size:.8em;
+}
+
+#statusList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#statusList li {
+  padding: 10px;
+}
+
+#statusList img {
+  height: 30px;
+  float: left;
+  padding-right: 10px;
+}
+
+.grey-search{
+  color:silver;
+  margin:2%;
+}
+
+#searchInput {
+  border-radius: 20px;
+  border: 1px solid silver;
+  margin-top:7%;
+}
+
+#statusRow{
+  margin:3%;
+}
+
+input:focus {
+  outline: none;
+}
+
+a:hover{
+   color:inherit;
+}
+
+#searchRow {
+  border-bottom: 1px solid grey;
+  height:50px;
+}
+
+#statusList div {
+  text-align: right;
+}
+
+#statusList div span {
+  float: left;
+}
+
+.status {
+  text-align: right;
+}
+
+#mainContainer {
+  background-color: #B19BD8;
+  min-height: 100%;
+  width: 100%;
+  text-align:center;
+}
+
+.title {
+  margin: 3%;
+  color: white;
+  font-family: 'News Cycle', sans-serif;
+}

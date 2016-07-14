@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Twitch App</title>
+	<link rel="stylesheet" type="text/css" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=News+Cycle">
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<div class="container" id="mainContainer">
+		<h1 class="title">Twitch Channel Status App</h1>
+		<div class="container" id="statusContainer">
+			<div class="form-group has-feedback" id="searchRow">
+				<input class="form-control" id="searchInput" />
+				<i class="fa fa-search grey-search form-control-feedback" aria-hidden="true"></i>
+				<span class="sr-only">Search icons</span>
+			</div>
+			<div id="statusRow">
+				<ul id="statusList">
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
