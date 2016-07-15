@@ -28,6 +28,7 @@ label {
 
 #statusList li {
   padding: 10px;
+  text-align:left;
 }
 
 #statusList img {

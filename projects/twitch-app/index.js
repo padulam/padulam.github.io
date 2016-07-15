@@ -6,11 +6,10 @@ $(document).ready(function() {
   var chan = twitchStreams.map(function(stream) {
     var status;
     var game = "";
-    var channelName;
-    var channelUrl;
-    var channelLogo;
-    var unavailable = false;
-    var twitchStreamData = $.get("https://api.twitch.tv/kraken/streams/" + stream, function(response) {
+    var data;
+
+    var twitchStreamData = $.get("https://api.twitch.tv/kraken/streams/" 
+      + stream, function(response) {
       if (response.stream === null) {
         status = "silver"
       } else {
@@ -19,25 +18,26 @@ $(document).ready(function() {
       }
     });
 
-    var twitchChannelData = $.get("https://api.twitch.tv/kraken/channels/" + stream, function(response) {
-      channelName = response.display_name
-      channelUrl = response.url
-      channelLogo = response.logo
-      if (channelLogo === null) {
-        channelLogo = "../../images/twitch-logo.png"
-      }
+    var twitchChannelData = $.get("https://api.twitch.tv/kraken/channels/" 
+      + stream, function(response) {
+      data = response;
 
     }).fail(function() {
-      status = "red";
-      unavailable = true;
-      channelLogo = "../../images/twitch-logo.png"
-      $("#statusList").append('<li><img src="' + channelLogo + '"><div><span>' + stream + " " + '</span><i class="fa fa-circle-thin"></i></div>' + '<label>This stream is no longer available</label></li>')
+      $("#statusList").append('<li><img src="../../images/twitch-logo.png">'
+          + '<div><span>' + stream + " " + '</span><i class="fa fa-circle-thin">' 
+          + '</i></div><label>This stream is no longer available</label></li>')
     });
+
     $.when(twitchStreamData, twitchChannelData).done(function() {
-      $("#statusList").append('<li><a href="' + channelUrl + '" target="_blank"><img src="' + channelLogo + '"><div><span>' + channelName + " " + '</span><i class="fa fa-circle" style="color:' + status + '"></i></div>' + '<label>' + game + '</label></a></li>')
+      var channelLogo = data.logo || "../../images/twitch-logo.png";
+      $("#statusList").append('<li><a href="' + data.url 
+        + '" target="_blank"><img src="' + channelLogo + '"><div><span>' 
+        + data.display_name + " " + '</span><i class="fa fa-circle" style' +
+        '="color:' + status + '"></i></div><label>' + game 
+        + '</label></a></li>')
     })
   })
-})
+});
 
 $("#searchInput").on('input', function() {
   var searchVal = $("#searchInput").val().toLowerCase();
