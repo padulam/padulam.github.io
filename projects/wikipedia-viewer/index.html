@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Wikipedia Viewer</title>
+	<link rel="stylesheet" type="text/css" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../bower_components/bootstrap-social/bootstrap-social.css">
+	<link rel="stylesheet" type="text/css" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../../bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather">
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<div class="container" id="main">
+		<div class="row" id="titleRow">
+			<h1 id="title" class="text-center">Wikipedia Search</h1>
+		</div>
+
+		<div class="row text-center" id="searchRow">
+			<div class="container" id="searchContainer">
+				<input type="search" class="autocomplete" id="searchBox" autofocus>
+				<div id="randomContainer">
+					<a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" 
+						class="btn ghost-button text-center" id="randomButton">Surprise Me!</a>
+				</div>
+				<ul id="searchResults">
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  min-width: 200px;
+}
+
+#main {
+  background-color: grey;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+#searchBox {
+  border-radius: 10px;
+  margin:2%;
+  display: inline-block;
+  border: 1px solid silver;
+  padding-left: 30px;
+  background-image: url("http://etc.usf.edu/presentations/extras/buttons/icons_trans/19%20grey/044.png");
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: 9px;
+  width:225px;
+}
+
+input:focus {
+  outline: none;
+}
+
+#searchResults {
+  list-style-type: none;
+  margin: 0;
+  padding: 25px;
+  overflow: hidden;
+}
+
+.search-result {
+  background-color: white;
+  margin: 2%;
+  min-width: 100%;
+  text-align: left;
+  display: inline-block;
+  float: left;
+  position: relative;
+  background: #FFF;
+  box-shadow: 2px 2px 1px 1px black;
+  color: #272727;
+  border-radius: 2px;
+}
+
+#title {
+  color: white;
+  font-family: 'Merriweather', serif;
+}
+
+#searchContainer {
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.search-link:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+#randomButton:focus{
+  color: white;
+  text-decoration: none;
+}
+
+.search-link:focus{
+  color: inherit;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+  color: inherit;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+}
+
+#titleRow{
+  margin-top:20%;
+}
+
+.header{
+  font-weight:bold;
+}
+
+.ghost-button:hover {
+  background-color: white;
+  color: #5a5c51;
+  text-decoration: none;
+}
+
+.ghost-button {
+  color: white;
+  background: none;
+  border: 1px solid white;
+  font-size: 17px;
+  padding: 7px 12px;
+  font-weight: normal;
+  margin: 6px 0;
+  margin-right: 12px;
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  width: 125px;
+}
