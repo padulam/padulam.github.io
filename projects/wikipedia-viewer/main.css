@@ -2,26 +2,22 @@ html,
 body {
   height: 100%;
   width: 100%;
+  background-color: grey;
   min-width: 200px;
 }
 
-#main {
-  background-color: grey;
-  min-height: 100%;
-  min-width: 100%;
+.search-container{
+  width: 225px;
+  margin: 2% auto;
 }
 
 #searchBox {
   border-radius: 10px;
+}
+
+.grey-search{
+  color:silver;
   margin:2%;
-  display: inline-block;
-  border: 1px solid silver;
-  padding-left: 30px;
-  background-image: url("http://etc.usf.edu/presentations/extras/buttons/icons_trans/19%20grey/044.png");
-  background-repeat: no-repeat;
-  background-size: 15px;
-  background-position: 9px;
-  width:225px;
 }
 
 input:focus {
@@ -37,12 +33,8 @@ input:focus {
 
 .search-result {
   background-color: white;
-  margin: 2%;
-  min-width: 100%;
-  text-align: left;
-  display: inline-block;
-  float: left;
-  position: relative;
+  margin: 2% auto;
+  max-width: 800px;
   background: #FFF;
   box-shadow: 2px 2px 1px 1px black;
   color: #272727;
@@ -52,12 +44,6 @@ input:focus {
 #title {
   color: white;
   font-family: 'Merriweather', serif;
-}
-
-#searchContainer {
-  width: 70%;
-  margin-left: 15%;
-  margin-right: 15%;
 }
 
 .search-link:hover {
@@ -86,6 +72,7 @@ a {
 
 #titleRow{
   margin-top:20%;
+  text-align:center;
 }
 
 .header{

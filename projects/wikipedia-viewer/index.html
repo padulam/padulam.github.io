@@ -10,21 +10,25 @@
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-	<div class="container" id="main">
-		<div class="row" id="titleRow">
+	<div class="container">
+		<div id="titleRow">
 			<h1 id="title" class="text-center">Wikipedia Search</h1>
+
+			<div class="form-group has-feedback search-container">
+				<input class="form-control" autocomplete="true" id="searchBox" autofocus/>
+				<i class="fa fa-search grey-search form-control-feedback" aria-hidden="true"></i>
+				<span class="sr-only">Search icon</span>
+			</div>
+
+			<div id="randomContainer">
+				<a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" 
+					class="btn ghost-button text-center" id="randomButton">Surprise Me!</a>
+			</div>
 		</div>
 
-		<div class="row text-center" id="searchRow">
-			<div class="container" id="searchContainer">
-				<input type="search" class="autocomplete" id="searchBox" autofocus>
-				<div id="randomContainer">
-					<a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" 
-						class="btn ghost-button text-center" id="randomButton">Surprise Me!</a>
-				</div>
-				<ul id="searchResults">
-				</ul>
-			</div>
+		<div id="searchRow">
+			<ul id="searchResults">
+			</ul>
 		</div>
 	</div>
 	<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.min.js"></script>
