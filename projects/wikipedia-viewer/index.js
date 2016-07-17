@@ -24,7 +24,7 @@ function search(parameter) {
 
     $.when(wikiSearch).done(function() {
       $('#searchBox').autocomplete({
-        source: results.slice(0, 4),
+        source: results.slice(0, 5),
         select: function(event, ui) {
           search(ui.item.value);
         }
