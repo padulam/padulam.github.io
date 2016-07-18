@@ -9,19 +9,21 @@ $('#searchBox').keyup(function() {
 
 function search(parameter) {
   var results = [];
-  var url;
-  $('#searchResults').empty()
-  $('#searchResults').hide()
+  $('#searchResults').empty().hide();
+
   if (parameter.length > 0) {
-    var wikiSearch = $.getJSON("https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&callback=?&srsearch=" + parameter, function(response) {
-      var titles = response.query.search.map(function(result) {
-        results.push(result.title);
-        url = formatUrl(result.title)
-        $("#searchResults").append("<li class='search-result'><a href='" + url + "' class='search-link' target='_blank'><span class='header'>" + result.title + "</span><br/><br/>" + result.snippet + "</a></li>")
+    //Execute search and format response
+    var wikiSearch = $.getJSON("https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&callback=?&srsearch=" + parameter, 
+        function(response) {
+          response.query.search.forEach(function(result) {
+            results.push(result.title);
+            $("#searchResults").append("<li class='search-result'><a href='" + formatUrl(result.title) 
+                + "' class='search-link' target='_blank'><span class='header'>" + result.title 
+                + "</span><br/><br/>" + result.snippet + "</a></li>");
+          });
+    });
 
-      })
-    })
-
+    //Run autocomplete function and display results
     $.when(wikiSearch).done(function() {
       $('#searchBox').autocomplete({
         source: results.slice(0, 5),
@@ -29,8 +31,9 @@ function search(parameter) {
           search(ui.item.value);
         }
       })
-      $('#searchResults').fadeIn(1000)
-    })
+
+      $('#searchResults').fadeIn(1000);
+    });
   } else {
     $('#randomContainer').show();
     $('#searchResults').empty();
@@ -38,5 +41,5 @@ function search(parameter) {
 }
 
 function formatUrl(title) {
-  return "https://en.wikipedia.org/wiki/" + title.replace(/\s/g, "_")
+  return "https://en.wikipedia.org/wiki/" + title.replace(/\s/g, "_");
 }
