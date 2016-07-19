@@ -1,0 +1,104 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+#main {
+  background-color: #DFE2DB;
+  width: 100%;
+  height: 100%;
+}
+
+#calcContain{
+  margin-top:10%;
+  width: 300px;
+}
+
+#calculator {
+  height: 440px;
+  width: 300px;
+  border-radius: 50px;
+  box-shadow: inset 0px -10px 30px 1px #777777, 0px 5px 30px .5px #777777;
+  background-color: #fcfcfc;
+  padding-right:20px;
+  padding-left:20px;
+  padding-bottom:20px;
+}
+
+.button-column {
+  height: 50px;
+  width: 30px;
+  margin: 25px 15px 0px 15px;
+  float: right;
+}
+
+#screen{
+  background-color:#C7C7B0;
+  border-radius:10px;
+  width:225px;
+  height:50px;
+  padding:0;
+  margin-left:7%;
+  margin-right:7%;
+  box-shadow:inset 0px 0px 2px 1px #777777;
+}
+
+.calc-buttons {
+  color: white;
+  float: right;
+  height: 45px;
+  width: 45px;
+  font-size: 1.25em;
+  padding: 3px;
+  margin: 7%;
+}
+
+.red-buttons{
+   background-color:#d84b68;
+  box-shadow: inset 0px 0px 1px 2px #c6415c;
+}
+
+.red-buttons:active{
+  box-shadow: inset 2px 2px 4px 2px #c6415c;
+}
+
+.grey-buttons{
+    background-color: #BCCCCB;
+  box-shadow: inset 0px 0px 1px 2px #777777;
+}
+
+.grey-buttons:active{
+  box-shadow: inset 2px 2px 4px 2px #777777;
+}
+
+.calc-buttons:active {
+  padding:10px;
+  color: white;
+}
+
+.calc-buttons:focus {
+  color: white;
+}
+
+.calc-buttons:hover {
+  color: white;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus {
+  outline: none;
+}
+
+#enteredNumber{
+  text-align:right;
+  margin:6px;
+}
+
+#title{
+  text-align:center;
+  margin:3%;
+  font-family: 'Pacifico', cursive;
+  font-weight:strong;
+}
