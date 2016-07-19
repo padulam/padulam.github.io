@@ -1,0 +1,44 @@
+.board {
+  height: 520px;
+  width: 820px;
+  background-color: black;
+  margin: 0 auto;
+  border: 10px grey solid;
+  border-radius: 10px;
+}
+
+.square {
+  border-top: 1px grey solid;
+  border-left: 1px grey solid;
+  width: 20px;
+  height: 20px;
+  display: block;
+  float: left;
+}
+
+.living {
+  background-color: orange;
+}
+
+.gamebutton-container {
+  margin: 0 auto;
+  width: 820px;
+  padding: 0;
+  display: block;
+}
+
+.game-header {
+  margin: 3% auto;
+  width: 820px;
+  padding: 0;
+}
+
+.generation-count {
+  float: right;
+}
+
+button {
+  width: 100px;
+  height: 40px;
+  margin: 2% 3% 0% 0%;
+}
