@@ -2,17 +2,7 @@ html,
 body {
   height: 100%;
   width: 100%;
-}
-
-#main {
   background-color: #DFE2DB;
-  width: 100%;
-  height: 100%;
-}
-
-#calcContain{
-  margin-top:10%;
-  width: 300px;
 }
 
 #calculator {
@@ -21,9 +11,8 @@ body {
   border-radius: 50px;
   box-shadow: inset 0px -10px 30px 1px #777777, 0px 5px 30px .5px #777777;
   background-color: #fcfcfc;
-  padding-right:20px;
-  padding-left:20px;
-  padding-bottom:20px;
+  padding: 10px 20px 20px 20px;
+  margin: 10% auto;
 }
 
 .button-column {
@@ -55,7 +44,7 @@ body {
 }
 
 .red-buttons{
-   background-color:#d84b68;
+  background-color:#d84b68;
   box-shadow: inset 0px 0px 1px 2px #c6415c;
 }
 
@@ -64,7 +53,7 @@ body {
 }
 
 .grey-buttons{
-    background-color: #BCCCCB;
+  background-color: #BCCCCB;
   box-shadow: inset 0px 0px 1px 2px #777777;
 }
 
@@ -98,7 +87,7 @@ body {
 
 #title{
   text-align:center;
-  margin:3%;
+  padding:5px;
   font-family: 'Pacifico', cursive;
   font-weight:strong;
 }
