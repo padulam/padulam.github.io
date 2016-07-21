@@ -2,6 +2,7 @@ class LifeApp extends React.Component {
   constructor() {
     super();
   
+    //1000 tiles at 1px = 40x25 board
     this.state = {
     	tiles:1000,
     	generations: 0,
@@ -18,11 +19,22 @@ class LifeApp extends React.Component {
 
   _generateSquares(){
   	var arr =[];
+    var x = 0;
+    var y = 0;
   	for(var i = 0; i<this.state.tiles;i++){
-  		arr.push(<Square id={i} key={i}/>);
+      if(i!==0&&i%40===0){
+        x=-1;
+        y+=40;
+      }
+  		arr.push(<Square pos={[x,y]} id={i} key={i}/>);
+      x+=1;
   	}
 
   	this.setState({cells: arr});
+  }
+
+  _findSquare(){
+    
   }
 
   _clearSquares(){
@@ -120,7 +132,7 @@ class Square extends React.Component {
 	}
 
 	render(){
-		let lifeClass;
+		let lifeClass ="";
 		if(this.state.living){
 			lifeClass="living"
 		}
