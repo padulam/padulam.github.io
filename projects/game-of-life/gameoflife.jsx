@@ -21,9 +21,10 @@ class LifeApp extends React.Component {
   	var arr =[];
     var x = 0;
     var y = 0;
+
   	for(var i = 0; i<this.state.tiles;i++){
       if(i!==0&&i%40===0){
-        x=-1;
+        x=0;
         y+=40;
       }
   		arr.push(<Square pos={[x,y]} id={i} key={i}/>);
@@ -129,7 +130,40 @@ class Square extends React.Component {
 
 	_handleClick(){
 		this.setState({living: !this.state.living})
+    console.table(this._getSquare(this.props.pos));
 	}
+
+  _getSquare(arr){
+    const max_X = 39
+    const max_Y = 960
+    const min_X = 0
+    const min_Y = 0
+
+    let sq = [[1,0],[-1,0],[0,40],
+          [0,-40],[1,40],[-1,-40],
+          [1,-40],[-1,40]];
+
+    let square = [];
+
+    for(let i=0;i<sq.length;i++){
+      let x = arr[0] + sq[i][0];
+      let y = arr[1] + sq[i][1];
+      if(x<min_X){
+        x= max_X;
+      } else if(x>max_X){
+        x= min_X
+      }
+
+      if(y<min_Y){
+        y= max_Y;
+      } else if(y>max_Y){
+        y= min_Y
+      }
+      square.push([x,y]);
+    }
+
+    return square;
+  }
 
 	render(){
 		let lifeClass ="";
