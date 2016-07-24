@@ -28,35 +28,64 @@ class LifeApp extends React.Component {
       }
 
       let brdSqs = this._findBrdSqs([x,y]);
+      let liv = false;
+      if(Math.round(Math.random())){
+        liv = true;
+      }
 
-  		arr.push(<Square highlightSquare={this._highlightSquare.bind(this)} brdSqs={brdSqs} pos={[x,y]} id={i} key={i}/>);
+  		arr.push(<Square 
+                    brdSqs={brdSqs} 
+                    pos={[x,y]}
+                    living={liv} 
+                    id={i} 
+                    key={i} />);
       x+=1;
   	}
 
   	this.setState({cells: arr});
   }
 
-  _highlightSquare(arr){
+  _highlightSquare(arr,cells){
+    console.log("hl");
     let hSqs = [];
     for(let i = 0; i<arr.length;i++){
-      this.state.cells.forEach(function(s){
+      cells.forEach(function(s){
         if(arr[i][0]===s.props.pos[0]&&arr[i][1]===s.props.pos[1]){
           hSqs.push(s);
         }
       });
     }
+    return hSqs;
   }
 
-  _determineLife(living){
+  _nextGen(){
+    let findBrdSqs = this._highlightSquare;
+    let findLife = this._determineLife;
+    let cells = this.state.cells;
+    let arr = this.state.cells.map(function(s){
+      let liv = findLife(findBrdSqs(s.props.brdSqs,cells), s.props.living);
+      let key = Math.random()*100;
+      return(<Square 
+                    brdSqs= {s.props.brdSqs}
+                    pos= {s.props.pos}
+                    living= {liv}
+                    id={s.props.id} 
+                    key={key} />);
+    });
+
+    return arr;
+  }
+
+  _determineLife(borderSqs,living){
     let liveCnt = 0;
 
-    this.borderSqs.forEach(function(s){
+    borderSqs.forEach(function(s){
       if(s.props.living){
         liveCnt+=1;
       }
     })
 
-    if(living&&liveCnt<2){
+    if(liveCnt<2){
       return false;
     }else if(living&&(liveCnt===2||liveCnt===3)){
       return true;
@@ -72,6 +101,8 @@ class LifeApp extends React.Component {
     const max_Y = 960
     const min_X = 0
     const min_Y = 0
+
+    console.log("hl");
 
     let brdSqs = [[1,0],[-1,0],[0,40],
           [0,-40],[1,40],[-1,-40],
@@ -101,7 +132,7 @@ class LifeApp extends React.Component {
 
   _startGame(){
   	this._generateSquares();
-  	this.interval = setInterval(this._runGeneration, 500);
+  	this.interval = setInterval(this._runGeneration, 100);
   }
 
   _stopGame(){
@@ -115,7 +146,7 @@ class LifeApp extends React.Component {
   }
 
   _runGeneration(){
-  	this.setState({generations: this.state.generations + 1});
+  	this.setState({generations: this.state.generations + 1, cells: this._nextGen()});
   }
 
   componentDidMount(){
@@ -171,19 +202,16 @@ class Clear extends React.Component {
 }
 
 class Square extends React.Component {
-	constructor(props) {
-	  super(props);
+  constructor(props) {
+    super(props);
+  
+    this.state = {living: this.props.living};
 
-	  this.state = {
-	  	living: false
-	  }
-
-	  this._handleClick = this._handleClick.bind(this);
-	}
+    this._handleClick = this._handleClick.bind(this);
+  }
 
 	_handleClick(){
 		this.setState({living: !this.state.living});
-    this.props.highlightSquare(this.props.brdSqs);
 	}
 
 	render(){
