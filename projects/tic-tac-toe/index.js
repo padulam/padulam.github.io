@@ -160,11 +160,11 @@ function uiMakeMove(player, location) {
 
         if (gameOver(TicTacToeBoard)) {
             if (winner === computerToken) {
-                alert(computerToken + " wins!");
+                $('.failure').show();
             } else if (winner === userToken) {
-                alert(userToken + " wins!");
+                $('.success').show();
             } else {
-                alert("Tie!");
+                $('.draw').show();
             }
             newGame();
             return false;
@@ -217,6 +217,7 @@ function gameOver(board) {
 }
 
 $('.square').click(function() {
+    $('.alert').hide();
     if (uiMakeMove(userToken, $(this).index())) {
         uiMakeMove(computerToken, takeTurn(TicTacToeBoard, computerToken));
     }

@@ -5,13 +5,22 @@ body {
     background-color: #5a5c51;
 }
 
+.failure,
+.success,
+.draw {
+    margin-bottom: 0;
+    display: none;
+    position:absolute;
+    width: 100%;
+}
+
 .token {
     font-size: 5em;
     color: white;
 }
 
 #boardContainer {
-    padding: 100px;
+    padding: 125px;
 }
 
 #dialog {
@@ -25,7 +34,7 @@ body {
 }
 
 #board {
-    width: 600px;
+    width: 525px;
     margin: 0 auto;
 }
 
