@@ -217,7 +217,9 @@ function gameOver(board) {
 }
 
 $('.square').click(function() {
-    $('.alert').hide();
+    $('.draw').hide();
+    $('.failure').hide()
+    $('.success').hide()
     if (uiMakeMove(userToken, $(this).index())) {
         uiMakeMove(computerToken, takeTurn(TicTacToeBoard, computerToken));
     }
