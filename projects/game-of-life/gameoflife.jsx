@@ -20,6 +20,7 @@ class LifeApp extends React.Component {
   	var arr =[];
     var x = 0;
     var y = 0;
+    let highlightSquare = this._highlightSquare;
 
   	for(var i = 0; i<this.state.tiles;i++){
       if(i!==0&&i%40===0){
@@ -42,37 +43,52 @@ class LifeApp extends React.Component {
       x+=1;
   	}
 
-  	this.setState({cells: arr});
+   let cells = arr.map(function(e){
+        let brdSqIds = highlightSquare(e.props.brdSqs,arr)
+        return <Square {...e.props} brdSqIds={brdSqIds} />;
+    });
+
+  	this.setState({cells: cells});
   }
 
   _highlightSquare(arr,cells){
-    console.log("hl");
     let hSqs = [];
     for(let i = 0; i<arr.length;i++){
-      cells.forEach(function(s){
-        if(arr[i][0]===s.props.pos[0]&&arr[i][1]===s.props.pos[1]){
-          hSqs.push(s);
+      let j = 0;
+      while(hSqs.length<=i){
+        if(arr[i][0]===cells[j].props.pos[0]&&arr[i][1]===cells[j].props.pos[1]){
+          hSqs.push(cells[j].props.id);
         }
-      });
+        j++;
+      }
     }
     return hSqs;
   }
 
   _nextGen(){
-    let findBrdSqs = this._highlightSquare;
-    let findLife = this._determineLife;
+    let determineLife = this._determineLife;
     let cells = this.state.cells;
+    let findBrdrCmpnnts = this._findBrdrCmpnnts
     let arr = this.state.cells.map(function(s){
-      let liv = findLife(findBrdSqs(s.props.brdSqs,cells), s.props.living);
+      let liv = determineLife(findBrdrCmpnnts(s.props.brdSqIds,cells), s.props.living);
       let key = Math.random()*100;
       return(<Square 
                     brdSqs= {s.props.brdSqs}
+                    brdSqIds = {s.props.brdSqIds}
                     pos= {s.props.pos}
                     living= {liv}
                     id={s.props.id} 
                     key={key} />);
     });
 
+    return arr;
+  }
+
+  _findBrdrCmpnnts(brdSqsIds,cells){
+    let arr = [];
+    for(let i = 0; i<brdSqsIds.length;i++){
+      arr.push(cells[brdSqsIds[i]]);
+    }
     return arr;
   }
 
@@ -101,8 +117,6 @@ class LifeApp extends React.Component {
     const max_Y = 960
     const min_X = 0
     const min_Y = 0
-
-    console.log("hl");
 
     let brdSqs = [[1,0],[-1,0],[0,40],
           [0,-40],[1,40],[-1,-40],
