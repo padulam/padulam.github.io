@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simon</title>
+    <link rel="stylesheet" type="text/css" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Bitter:700">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+    <div class="container" id="main">
+        <div id="simonGame">
+            <div id="controls" class="container">
+                <h1 class="text-center row" id="title">simon<span id="registered">&reg;</span></h1>
+                <div class="text-class row" id="buttonLabelContainer">
+                    <h1 class="button-labels">Power</h1>
+                    <h1 class="button-labels">Start</h1>
+                    <h1 class="button-labels">Strict</h1>
+                </div>
+                <div class="text-center row" id="buttonContainer">
+                    <button id="power" class="controlButtons"></button>
+                    <button id="start" class="controlButtons"></button>
+                    <button id="strict" class="controlButtons"></button>
+                </div>
+                <div class="row" id="screenContainer">
+                    <div class="text-center" id="screen">
+                        <h1 id="strictSignal">strict</h1>
+                        <h1 id="screenText" class="text-center">--</h1>
+                    </div>
+                    <div id="powerSignal"></div>
+                </div>
+            </div>
+            <div class="colors" id="topLeft">
+            </div>
+            <div class="colors" id="topRight"></div>
+            <div class="colors" id="bottomLeft"></div>
+            <div class="colors" id="bottomRight"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.min.js"></script>
+   	<script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>

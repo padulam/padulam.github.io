@@ -1,0 +1,200 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-image: url('http://img08.deviantart.net/165c/i/2008/148/b/8/wood_floor_by_gnrbishop.jpg');
+}
+
+#title {
+  font-family: 'Bitter', serif;
+  font-size: 3.5em;
+  margin-top: 15%;
+}
+
+#main {
+  width: 500px;
+}
+
+.colors {
+  float: left;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+}
+
+#controls {
+  width: 250px;
+  height: 250px;
+  background-color: #ECE7EE;
+  border-radius: 50%;
+  position: absolute;
+  border: solid 15px #333333;
+  z-index: 2;
+  margin: 22.5%;
+}
+
+#topLeft {
+  height: 225px;
+  width: 225px;
+  border-right: solid 12.5px #333333;
+  border-bottom: solid 12.5px #333333;
+  border-radius: 215px 0px 0px 0px;
+  margin: 0 auto;
+  background-color: #00A74A;
+  box-shadow: inset 7px 7px 10px 0px #01893c, inset -7px -7px 10px 0px #01893c;
+}
+
+#topRight {
+  height: 225px;
+  width: 225px;
+  border-left: solid 12.5px #333333;
+  border-bottom: solid 12.5px #333333;
+  border-radius: 0px 215px 0px 0px;
+  background-color: #9F0F17;
+  margin: 0 auto;
+  box-shadow: inset 7px 7px 20px 0px #720b0e, inset -7px -7px 10px 0px #720b0e;
+}
+
+#bottomLeft {
+  height: 225px;
+  width: 225px;
+  border-right: solid 12.5px #333333;
+  border-top: solid 12.5px #333333;
+  border-radius: 0px 0px 0px 215px;
+  background-color: #CCA707;
+  margin: 0 auto;
+  box-shadow: inset 7px 7px 10px 0px #937705, inset -7px -7px 10px 0px #937705;
+}
+
+#bottomRight {
+  height: 225px;
+  width: 225px;
+  border-left: solid 12.5px #333333;
+  border-top: solid 12.5px #333333;
+  border-radius: 0px 0px 215px 0px;
+  background-color: #094A8F;
+  margin: 0 auto;
+  box-shadow: inset 7px 7px 10px 0px #063666, inset -7px -7px 10px 0px #063666;
+}
+
+#simonGame {
+  width: 500px;
+  height: 500px;
+  border: solid 25px #333333;
+  border-radius: 50%;
+  padding: 0;
+  z-index: 1;
+  margin-top: 5%;
+  padding: 0;
+  position: absolute;
+  box-shadow: inset 0px -10px 30px 1px #777777, 0px 5px 30px 7px #777777;
+}
+
+#registered {
+  font-size: .25em;
+}
+
+.controlButtons {
+  border: solid 1px black;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin: 3%;
+  box-shadow: inset 0px -1px 3px 1px #585b59;
+}
+
+.controlButtons:focus {
+  outline: none;
+}
+
+.controlButtons:active {
+  box-shadow: inset 0px -1px 3px 2px #585b59;
+}
+
+#power {
+  background-color: blue;
+}
+
+#start {
+  background-color: red;
+}
+
+#strict {
+  background-color: yellow;
+}
+
+.green-light {
+  background-color: #15f275 !important;
+  box-shadow: inset 7px 7px 10px 1px #00A74A, inset -7px -7px 10px 1px #00A74A !important;
+}
+
+.red-light {
+  background-color: #ff666d !important;
+  box-shadow: inset 7px 7px 10px 1px #9F0F17, inset -7px -7px 10px 1px #9F0F17 !important;
+}
+
+.yellow-light {
+  background-color: #fff966 !important;
+  box-shadow: inset 7px 7px 10px 1px #937705, inset -7px -7px 10px 1px #937705 !important;
+}
+
+.blue-light {
+  background-color: #76b9fc !important;
+  box-shadow: inset 7px 7px 10px 1px #094A8F, inset -7px -7px 10px 1px #094A8F !important;
+}
+
+#screen {
+  background-color: #32050C;
+  width: 75px;
+  height: 50px;
+  border-radius: 10px;
+  margin: 3%;
+  margin-left: 33%;
+  padding: 1px;
+  box-shadow: inset 0px 0px 2px 1px #777777;
+}
+
+#screenText {
+  color: #430710;
+  margin-top: 5%;
+  font-size: 1.75em;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.button-labels {
+  font-size: .75em;
+  margin: 3%;
+  float: left;
+}
+
+#buttonLabelContainer {
+  margin-left: 20%;
+}
+
+h1 {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+#powerSignal {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: solid 1px black;
+  background-color: black;
+  margin-left: 72%;
+  margin-top: -17%;
+}
+
+#strictSignal {
+  font-size: .5em;
+  margin:0 auto;
+  margin-top:2%;
+  margin-left:50%;
+  color:#430710;
+}
