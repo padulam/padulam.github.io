@@ -4,7 +4,7 @@ class LifeApp extends React.Component {
   
     //1000 tiles at 1px = 40x25 board
     this.state = {
-    	tiles:1000,
+    	tiles:100,
     	generations: 0,
     	cells: []
     };
@@ -17,15 +17,16 @@ class LifeApp extends React.Component {
   }
 
   _generateSquares(){
-  	var arr =[];
-    var x = 0;
-    var y = 0;
+  	let arr =[];
+    let x = 0;
+    let y = 0;
+    const RW_LNGTH = 10;
     let highlightSquare = this._highlightSquare;
 
-  	for(var i = 0; i<this.state.tiles;i++){
-      if(i!==0&&i%40===0){
+  	for(let i = 0; i<this.state.tiles;i++){
+      if(i!==0&&i%RW_LNGTH===0){
         x=0;
-        y+=40;
+        y+=RW_LNGTH;
       }
 
       let brdSqs = this._findBrdSqs([x,y]);
@@ -113,14 +114,15 @@ class LifeApp extends React.Component {
   }
 
   _findBrdSqs(arr){
-    const max_X = 39
-    const max_Y = 960
-    const min_X = 0
-    const min_Y = 0
+    const max_X = 9;
+    const max_Y = 10;
+    const min_X = 0;
+    const min_Y = 0;
+    const RW_LNGTH = 10;
 
-    let brdSqs = [[1,0],[-1,0],[0,40],
-          [0,-40],[1,40],[-1,-40],
-          [1,-40],[-1,40]];
+    let brdSqs = [[1,0],[-1,0],[0,RW_LNGTH],
+          [0,-RW_LNGTH],[1,RW_LNGTH],[-1,-RW_LNGTH],
+          [1,-RW_LNGTH],[-1,RW_LNGTH]];
 
     let squares = [];
 
@@ -146,7 +148,7 @@ class LifeApp extends React.Component {
 
   _startGame(){
   	this._generateSquares();
-  	this.interval = setInterval(this._runGeneration, 100);
+  	this.interval = setInterval(this._runGeneration, 1000);
   }
 
   _stopGame(){
