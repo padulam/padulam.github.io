@@ -2,7 +2,7 @@ html,
 body {
   width: 100%;
   height: 100%;
-  background-image: url('http://img08.deviantart.net/165c/i/2008/148/b/8/wood_floor_by_gnrbishop.jpg');
+  background-image: url(../../images/wood-floor.jpg);
 }
 
 #title {
