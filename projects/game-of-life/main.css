@@ -1,8 +1,8 @@
 /*h=520,w=820*/
 
 .board {
-  height: 220px;
-  width: 220px;
+  height: 520px;
+  width: 820px;
   background-color: black;
   margin: 0 auto;
   border: 10px grey solid;
@@ -24,7 +24,7 @@
 
 .gamebutton-container {
   margin: 0 auto;
-  width: 220px;
+  width: 820px;
   padding: 0;
   display: block;
 }

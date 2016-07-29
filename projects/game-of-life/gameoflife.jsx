@@ -4,7 +4,7 @@ class LifeApp extends React.Component {
   
     //1000 tiles at 1px = 40x25 board
     this.state = {
-    	tiles:100,
+    	tiles:1000,
     	generations: 0,
     	cells: []
     };
@@ -20,8 +20,7 @@ class LifeApp extends React.Component {
   	let arr =[];
     let x = 0;
     let y = 0;
-    const RW_LNGTH = 10;
-    let highlightSquare = this._highlightSquare;
+    const RW_LNGTH = 40;
 
   	for(let i = 0; i<this.state.tiles;i++){
       if(i!==0&&i%RW_LNGTH===0){
@@ -29,14 +28,15 @@ class LifeApp extends React.Component {
         y+=RW_LNGTH;
       }
 
-      let brdSqs = this._findBrdSqs([x,y]);
+      let brdSqIds = this._findBrdSqIds([x,y]);
+
       let liv = false;
       if(Math.round(Math.random())){
         liv = true;
       }
 
   		arr.push(<Square 
-                    brdSqs={brdSqs} 
+                    brdSqIds={brdSqIds} 
                     pos={[x,y]}
                     living={liv} 
                     id={i} 
@@ -44,26 +44,7 @@ class LifeApp extends React.Component {
       x+=1;
   	}
 
-   let cells = arr.map(function(e){
-        let brdSqIds = highlightSquare(e.props.brdSqs,arr)
-        return <Square {...e.props} brdSqIds={brdSqIds} />;
-    });
-
-  	this.setState({cells: cells});
-  }
-
-  _highlightSquare(arr,cells){
-    let hSqs = [];
-    for(let i = 0; i<arr.length;i++){
-      let j = 0;
-      while(hSqs.length<=i){
-        if(arr[i][0]===cells[j].props.pos[0]&&arr[i][1]===cells[j].props.pos[1]){
-          hSqs.push(cells[j].props.id);
-        }
-        j++;
-      }
-    }
-    return hSqs;
+  	this.setState({cells: arr});
   }
 
   _nextGen(){
@@ -74,7 +55,6 @@ class LifeApp extends React.Component {
       let liv = determineLife(findBrdrCmpnnts(s.props.brdSqIds,cells), s.props.living);
       let key = Math.random()*100;
       return(<Square 
-                    brdSqs= {s.props.brdSqs}
                     brdSqIds = {s.props.brdSqIds}
                     pos= {s.props.pos}
                     living= {liv}
@@ -85,10 +65,10 @@ class LifeApp extends React.Component {
     return arr;
   }
 
-  _findBrdrCmpnnts(brdSqsIds,cells){
+  _findBrdrCmpnnts(brdSqIds,cells){
     let arr = [];
-    for(let i = 0; i<brdSqsIds.length;i++){
-      arr.push(cells[brdSqsIds[i]]);
+    for(let i = 0; i<brdSqIds.length;i++){
+      arr.push(cells[brdSqIds[i]]);
     }
     return arr;
   }
@@ -101,8 +81,8 @@ class LifeApp extends React.Component {
         liveCnt+=1;
       }
     })
-
-    if(liveCnt<2){
+    
+    if(living&&liveCnt<2){
       return false;
     }else if(living&&(liveCnt===2||liveCnt===3)){
       return true;
@@ -110,15 +90,17 @@ class LifeApp extends React.Component {
       return false;
     } else if(living===false&&liveCnt===3){
       return true;
+    }else{
+      return false;
     }
   }
 
-  _findBrdSqs(arr){
-    const max_X = 9;
-    const max_Y = 10;
+  _findBrdSqIds(arr){
+    const max_X = 39;
+    const max_Y = 960;
     const min_X = 0;
     const min_Y = 0;
-    const RW_LNGTH = 10;
+    const RW_LNGTH = 40;
 
     let brdSqs = [[1,0],[-1,0],[0,RW_LNGTH],
           [0,-RW_LNGTH],[1,RW_LNGTH],[-1,-RW_LNGTH],
@@ -140,7 +122,8 @@ class LifeApp extends React.Component {
       } else if(y>max_Y){
         y= min_Y
       }
-      squares.push([x,y]);
+
+      squares.push(x+y);
     }
 
     return squares;
@@ -148,7 +131,7 @@ class LifeApp extends React.Component {
 
   _startGame(){
   	this._generateSquares();
-  	this.interval = setInterval(this._runGeneration, 1000);
+  	this.interval = setInterval(this._runGeneration, 100);
   }
 
   _stopGame(){
