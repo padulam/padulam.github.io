@@ -11,8 +11,12 @@ body {
   margin-top: 15%;
 }
 
-#main {
-  width: 500px;
+#buttonContainer{
+  text-align: center;
+}
+
+#main{
+  width:500px;
 }
 
 .colors {
@@ -20,6 +24,8 @@ body {
   position: relative;
   z-index: 0;
   cursor: pointer;
+  height: 225px;
+  width: 225px;
 }
 
 #controls {
@@ -34,8 +40,6 @@ body {
 }
 
 #topLeft {
-  height: 225px;
-  width: 225px;
   border-right: solid 12.5px #333333;
   border-bottom: solid 12.5px #333333;
   border-radius: 215px 0px 0px 0px;
@@ -45,8 +49,6 @@ body {
 }
 
 #topRight {
-  height: 225px;
-  width: 225px;
   border-left: solid 12.5px #333333;
   border-bottom: solid 12.5px #333333;
   border-radius: 0px 215px 0px 0px;
@@ -56,8 +58,6 @@ body {
 }
 
 #bottomLeft {
-  height: 225px;
-  width: 225px;
   border-right: solid 12.5px #333333;
   border-top: solid 12.5px #333333;
   border-radius: 0px 0px 0px 215px;
@@ -67,8 +67,6 @@ body {
 }
 
 #bottomRight {
-  height: 225px;
-  width: 225px;
   border-left: solid 12.5px #333333;
   border-top: solid 12.5px #333333;
   border-radius: 0px 0px 215px 0px;
@@ -152,6 +150,7 @@ body {
   margin-left: 33%;
   padding: 1px;
   box-shadow: inset 0px 0px 2px 1px #777777;
+  text-align: center;
 }
 
 #screenText {
@@ -169,6 +168,7 @@ body {
 
 #buttonLabelContainer {
   margin-left: 20%;
+  text-align:center;
 }
 
 h1 {
