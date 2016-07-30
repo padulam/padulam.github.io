@@ -32,6 +32,7 @@ $(".operand").click(function() {
       $('#enteredNumber').html(trimToFit(getEquals(calculate) / 100));
     }
     awaitNum = true;
+
     calculate+= $("#enteredNumber").html() + (operands[currOperand]||currOperand);
   }
 })
