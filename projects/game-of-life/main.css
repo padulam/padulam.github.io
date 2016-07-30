@@ -1,25 +1,49 @@
 /*h=520,w=820*/
 
+html,
+body{
+  background-color: black;
+  color: #0DFC03;
+}
+
 .board {
   height: 520px;
   width: 820px;
   background-color: black;
   margin: 0 auto;
-  border: 10px grey solid;
+  border: 10px white solid;
   border-radius: 10px;
 }
 
 .square {
-  border-top: 1px grey solid;
-  border-left: 1px grey solid;
+  border-top: 1px #6d6d6d solid;
+  border-left: 1px #6d6d6d solid;
   width: 20px;
   height: 20px;
   display: block;
   float: left;
 }
 
+.ghost-button {
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+  font-size: 16px;
+  padding: 5px;
+  font-weight: normal;
+  margin: 2% 2% 0% 0%;
+  text-decoration: none;
+  width: 100px;
+  height: 40px;
+}
+
+.ghost-button:hover {
+  background-color: white;
+  color: black;
+}
+
 .living {
-  background-color: orange;
+  background-color: #0DFC03;
 }
 
 .gamebutton-container {
@@ -31,16 +55,15 @@
 
 .game-header {
   margin: 3% auto;
+  text-align:center;
+  font-family: 'Press Start 2P', cursive;
   width: 820px;
+  color: #0DFC03;
   padding: 0;
 }
 
 .generation-count {
   float: right;
-}
-
-button {
-  width: 100px;
-  height: 40px;
-  margin: 2% 3% 0% 0%;
+  font-size: 16pt;
+  font-family: 'Press Start 2P', cursive;*/
 }

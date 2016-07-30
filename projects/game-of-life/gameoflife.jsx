@@ -11,12 +11,13 @@ class LifeApp extends React.Component {
 
     this._runGeneration = this._runGeneration.bind(this);
     this._startGame = this._startGame.bind(this);
+    this._runGame = this._runGame.bind(this);
     this._stopGame = this._stopGame.bind(this);
     this._clearGame = this._clearGame.bind(this);
     this._generateSquares = this._generateSquares.bind(this);
   }
 
-  _generateSquares(){
+  _generateSquares(randomize){
   	let arr =[];
     let x = 0;
     let y = 0;
@@ -31,38 +32,62 @@ class LifeApp extends React.Component {
       let brdSqIds = this._findBrdSqIds([x,y]);
 
       let liv = false;
-      if(Math.round(Math.random())){
-        liv = true;
+      if(randomize){
+        if(Math.round(Math.random())){
+          liv = true;
+        }
       }
-
+      
   		arr.push(<Square 
                     brdSqIds={brdSqIds} 
                     pos={[x,y]}
                     living={liv} 
                     id={i} 
-                    key={i} />);
+                    key={i} 
+                    updateSquare= {this._updateSquare.bind(this)}/>);
       x+=1;
   	}
 
   	this.setState({cells: arr});
   }
 
+  _updateSquare(s){
+    let arr = this.state.cells
+    console.log(s.props.key)
+    arr[s.props.id] = <Square 
+                              brdSqIds = {s.props.brdSqIds}
+                              pos= {s.props.pos}
+                              living= {!s.props.living}
+                              id={s.props.id} 
+                              key={s.props.id} 
+                              updateSquare= {s.props.updateSquare} />;
+    this.setState({cells:arr});
+  }
+
   _nextGen(){
     let determineLife = this._determineLife;
     let cells = this.state.cells;
     let findBrdrCmpnnts = this._findBrdrCmpnnts
+    let cellsAlive = false;
     let arr = this.state.cells.map(function(s){
       let liv = determineLife(findBrdrCmpnnts(s.props.brdSqIds,cells), s.props.living);
-      let key = Math.random()*100;
+      if (liv){
+        cellsAlive = true;
+      }
       return(<Square 
                     brdSqIds = {s.props.brdSqIds}
                     pos= {s.props.pos}
                     living= {liv}
                     id={s.props.id} 
-                    key={key} />);
+                    key={s.props.id} 
+                    updateSquare= {s.props.updateSquare} />
+                    );
     });
-
-    return arr;
+    if(cellsAlive){
+      return arr;
+    }else{
+      return null;
+    }
   }
 
   _findBrdrCmpnnts(brdSqIds,cells){
@@ -96,6 +121,7 @@ class LifeApp extends React.Component {
   }
 
   _findBrdSqIds(arr){
+    //x39 y960
     const max_X = 39;
     const max_Y = 960;
     const min_X = 0;
@@ -130,8 +156,12 @@ class LifeApp extends React.Component {
   }
 
   _startGame(){
-  	this._generateSquares();
-  	this.interval = setInterval(this._runGeneration, 100);
+  	this._generateSquares(true);
+  	this._runGame();
+  }
+
+  _runGame(){
+    this.interval = setInterval(this._runGeneration, 100);
   }
 
   _stopGame(){
@@ -140,12 +170,17 @@ class LifeApp extends React.Component {
 
   _clearGame(){
   	this._stopGame();
-  	this._generateSquares();
+  	this._generateSquares(false);
   	this.setState({generations: 0});
   }
 
   _runGeneration(){
-  	this.setState({generations: this.state.generations + 1, cells: this._nextGen()});
+    let nextGen = this._nextGen();
+    if (nextGen){
+      this.setState({generations: this.state.generations + 1, cells: nextGen});
+    } else{
+      this._clearGame();
+    }
   }
 
   componentDidMount(){
@@ -160,13 +195,13 @@ class LifeApp extends React.Component {
   	return(
   		<div className="lifeapp-container container">
   			<div className="game-header container">
-  				
+  				<h1>Game of Life</h1>
   			</div>
 		   	<div className="board">
 		   		{this.state.cells}
 		   	</div>
 		   	<div className="gamebutton-container container">
-		   		<Run startGame={this._startGame}/>
+		   		<Run runGame={this._runGame}/>
 		   		<Stop stopGame={this._stopGame}/>
 		   		<Clear clearGame={this._clearGame}/>
 		   		<h2 className="generation-count">Generations: {this.state.generations}</h2>
@@ -179,7 +214,7 @@ class LifeApp extends React.Component {
 class Run extends React.Component {
 	render(){
 		return(
-			<button onClick={this.props.startGame} className="btn btn-primary">Run</button>
+			<button onClick={this.props.runGame} className="ghost-button">Run</button>
 		);
 	}
 }
@@ -187,7 +222,7 @@ class Run extends React.Component {
 class Stop extends React.Component {
 	render(){
 		return(
-			<button onClick={this.props.stopGame} className="btn btn-danger">Stop</button>
+			<button onClick={this.props.stopGame} className="ghost-button">Stop</button>
 		);
 	}
 }
@@ -195,32 +230,24 @@ class Stop extends React.Component {
 class Clear extends React.Component {
 	render(){
 		return(
-			<button onClick={this.props.clearGame} className="btn btn-warning">Clear</button>
+			<button onClick={this.props.clearGame} className="ghost-button">Clear</button>
 		);
 	}
 }
 
 class Square extends React.Component {
-  constructor(props) {
-    super(props);
-  
-    this.state = {living: this.props.living};
-
-    this._handleClick = this._handleClick.bind(this);
+  _updateSquare(){
+    this.props.updateSquare(this);
   }
-
-	_handleClick(){
-		this.setState({living: !this.state.living});
-	}
 
 	render(){
 		let lifeClass ="";
-		if(this.state.living){
+		if(this.props.living){
 			lifeClass="living"
 		}
 
 		return(
-			<div onClick={this._handleClick} className={`square ${lifeClass}`}></div>
+			<div onClick={this._updateSquare.bind(this)} className={`square ${lifeClass}`}></div>
 		);
 	}
 }
