@@ -94,5 +94,11 @@
 		"name": "Recipe App",
 		"url": "http://codepen.io/padulam/full/YWXgRq/",
 		"screenshot": "images/recipe_app.png"
+	},
+	{
+		"id": 17,
+		"name": "Game of Life",
+		"url": "projects/game-of-life/",
+		"screenshot": "images/game_of_life.png"
 	}
 ]
