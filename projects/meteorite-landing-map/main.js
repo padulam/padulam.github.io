@@ -32,12 +32,14 @@ function generateMap(geoData,meteorData){
 					.append("div")
 					.classed("tooltip",true);
 
-	var meteorScale = d3.scale.linear()
+	var color = d3.scale.category10();
+
+	var meteorScale = d3.scale.sqrt()
 								.domain([
-									d3.min(meteorData.features,function(d){return Number(d.properties.mass)}),
-									d3.max(meteorData.features,function(d){return Number(d.properties.mass)})
+									d3.min(meteorData.features,function(d){return +d.properties.mass||null}),
+									d3.max(meteorData.features,function(d){return +d.properties.mass||null})
 								])
-								.range([3,20]);
+								.range([5,25]);
 
 	var map = svg.selectAll("path")
 					.data(geoData.features)
@@ -65,7 +67,9 @@ function generateMap(geoData,meteorData){
 						.attr("r",function(d){
 							return meteorScale(d.properties.mass);
 						})
-						.style("fill","yellow")
+						.style("fill",function(d,i){
+							return color(i);
+						})
 						.style("opacity",.75)
 						.on("mouseover",function(d){
 							toolTip.style("left",d3.event.pageX + "px")
