@@ -14,10 +14,9 @@ body{
     border: 1px solid silver;
     width:150px;
     text-align:left;
-    font-size:12px
+    font-size:14px
 }
 
 #toolTipMainText{
   font-weight:bold;
-  font-size:14px;
 }

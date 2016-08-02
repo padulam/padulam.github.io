@@ -75,9 +75,9 @@ function generateMap(geoData,meteorData){
 							toolTip.style("left",d3.event.pageX + "px")
 									.style("top",d3.event.pageY + "px")
 									.style("visibility","visible")
-									.html("<span id = 'toolTipMainText'>Name: " + 
-										d.properties.name + "</span><br/>Mass: " +
-										d.properties.mass + "<br/>Date: ");
+									.html("<span id = 'toolTipMainText'>Name: </span>" + 
+										d.properties.name + "<br/><span id = 'toolTipMainText'>Mass: </span>" +
+										d.properties.mass + "<br/><span id = 'toolTipMainText'>Date: </span>");
 							var d = new Date(d.properties.year)
 							toolTip.html(toolTip.html()+ d.toDateString());
 
