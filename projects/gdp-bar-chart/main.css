@@ -1,0 +1,50 @@
+html,
+body {
+  background: silver;
+  text-align: center;
+  margin-top: 1%;
+  font-family: sans-serif;
+}
+
+.chart {
+  -moz-box-shadow: 3px 3px 3px grey, -1px 0px 3px grey;
+  -webkit-box-shadow: 3px 3px 3px grey, -1px 0px 3px grey;
+  box-shadow: 3px 3px 3px grey, -1px 0px 3px grey;
+  background: white;
+  padding: 120px;
+}
+
+.bar {
+  fill: #5488bc;
+}
+
+.axes path,
+.axes line {
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
+}
+
+.axes text {
+  font-size: 14px;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  padding-left: 10px;
+  padding-right: 10px;
+  white-space: nowrap;
+  background-color: rgba(232, 225, 225, 0.8);
+  border-radius: 5px;
+  text-align: left;
+}
+
+#toolTipAmount {
+  font-weight: bold;
+  font-size: 18px;
+}

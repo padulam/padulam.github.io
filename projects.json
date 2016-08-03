@@ -55,8 +55,8 @@
 	},
 	{
 		"id": 10,
-		"name": "D3 Bar Chart",
-		"url": "http://codepen.io/padulam/full/pgBbvm/",
+		"name": "GDP Bar Chart",
+		"url": "projects/gdp-bar-chart/",
 		"screenshot": "images/d3_bar_chart.png"
 	},
 	{
