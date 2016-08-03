@@ -100,5 +100,11 @@
 		"name": "Game of Life",
 		"url": "projects/game-of-life/",
 		"screenshot": "images/game_of_life.png"
+	},
+	{
+		"id": 18,
+		"name": "Meteorite Landing Map",
+		"url": "projects/meteorite-landing-map/",
+		"screenshot": "images/meteorite_landing_map.png"
 	}
 ]
