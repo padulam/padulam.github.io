@@ -1,0 +1,55 @@
+html,
+body {
+  font-family: sans-serif;
+  text-align: center;
+  margin-top: .5%;
+  background-color: silver;
+}
+
+.chart {
+  -moz-box-shadow: 1px 1px 1px grey, -1px 1px 1px grey;
+  -webkit-box-shadow: 1px 1px 1px grey, -1px 1px 1px grey;
+  box-shadow: 1px 1px 1px grey, -1px 1px 1px grey;
+  padding: 125px;
+  background-color: white;
+}
+
+.axes path,
+.axes line {
+  stroke: black;
+  fill: none;
+  shape-rendering: crispEdges;
+}
+
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid silver;
+  width: 150px;
+  text-align: left;
+  font-size: 12px;
+}
+
+#toolTipMainText {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.title {
+  font-size: 30px;
+}
+
+#redDot,
+#blackDot {
+  font-size: 12px;
+}
+
+.no-allegations {
+  fill: grey;
+}
+
+.dope-allegations {
+  fill: #e85858;
+}
