@@ -1,0 +1,59 @@
+body{
+	overflow: hidden;
+}
+
+.treasure{
+	background-color: gold;
+}
+
+.wall{
+	background-color: grey;
+}
+
+.area{
+	background-color: tan;
+}
+
+.player{
+	background-color: blue ;
+}
+
+.health{
+	background-color: green;
+}
+
+.enemy{
+	background-color: red;
+}
+
+.board{
+	background-color: black;
+	width: 1020px;
+	height: 720px;
+	overflow: auto;
+}
+
+.cell{
+	float:left;
+	border-top:1px solid silver;
+	border-left:1px solid silver;
+	height:10px;
+	width: 10px;
+}
+
+#rogue-app{
+	width: 1040px;
+	height: 740px;
+	margin: 0 auto;
+	border: 10px solid silver;
+	overflow: hidden;
+}
+
+.title{
+	background-color: black;
+	height:100px;
+	width:1020px;
+	border-bottom:5px solid silver;
+
+}
+
