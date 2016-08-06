@@ -1,0 +1,25 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+}
+
+.main {
+  margin: 2% auto;
+  height: 100%;
+}
+
+#markdown-app {
+  height: 100%;
+}
+
+.fill {
+  height: 75%;
+  padding: 1%;
+}
