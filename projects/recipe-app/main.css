@@ -1,0 +1,47 @@
+#recipe-app {
+  margin: 3%;
+}
+
+.recipe-container {
+  background-color: #EEE;
+  padding: 20px;
+  min-height: 70px;
+  border-radius: 10px;
+}
+
+.recipe-title {
+  display: block;
+  overflow: auto;
+}
+
+.recipe-name {
+  float: left;
+}
+
+.edit-button {
+  float: right;
+  border: none;
+  background-color: transparent;
+  transition: color 0.25s;
+  font-size: 16px;
+}
+.edit-button:hover {
+  color: blue;
+}
+
+.remove-button {
+  float: right;
+  border: none;
+  background-color: transparent;
+  transition: color 0.25s;
+  font-size: 16px;
+}
+.remove-button:hover {
+  color: red;
+}
+
+.ingredient-table caption {
+  text-align: center;
+  color: black;
+  font-size: 1.25em;
+}
