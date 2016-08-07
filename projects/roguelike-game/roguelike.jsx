@@ -31,15 +31,15 @@ class Board extends React.Component {
 
 	_generateCells(){
 		let arr = [];
-		let type = {1: "player", 
-					2: "treasure", 
-					3: "wall", 
+		let type = {1: "area", 
+					2: "wall", 
+					3: "treasure", 
 					4: "health", 
 					5: "player", 
 					6: "enemy"};
 
 		for(let i = 0;i<this.state.tiles;i++){
-			let cellType = type[Math.floor((Math.random()*6)+1)];
+			let cellType = type[Math.floor((Math.random()*2)+1)];
 			arr.push(<Tile type={cellType}/>);
 		}
 		this.setState({cells:arr});
