@@ -1,0 +1,14 @@
+.tooltip{
+    visibility: hidden;
+    position:absolute;
+    padding:10px;
+    background-color:white;
+    border: 1px solid silver;
+    text-align:left;
+    font-size:14px;
+    font-family: Helvetica,Arial,sans-serif;
+}
+
+body{
+    position: absolute;
+}
