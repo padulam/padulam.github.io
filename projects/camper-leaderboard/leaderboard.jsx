@@ -58,8 +58,8 @@ class LeaderBoard extends React.Component{
 		 }
 
 		return(<table className="table table-striped leader-table">
+		<caption>Leaderboard</caption>
 		<thead>
-			<caption>Leaderboard</caption>
 		  <tr>
 		    <th>#</th>
 		    <th>Camper Name</th>
