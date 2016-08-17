@@ -30,6 +30,9 @@ class Board extends React.Component {
 	}
 
 	_generateCells(){
+		const RW_LNGTH = 100;
+		let x = 0;
+		let y = 0;
 		let arr = [];
 		let type = {1: "area", 
 					2: "wall", 
@@ -39,11 +42,54 @@ class Board extends React.Component {
 					6: "enemy"};
 
 		for(let i = 0;i<this.state.tiles;i++){
+			if(i!==0&&i%RW_LNGTH===0){
+				x=0;
+				y+=RW_LNGTH;
+			}
+
+			let brdSqIds = this._findBrdSqIds([x,y]);
+
 			let cellType = type[Math.floor((Math.random()*2)+1)];
-			arr.push(<Tile type={cellType}/>);
+			arr.push(<Tile id={i} brdSqIds={brdSqIds} type={cellType}/>);
+			x+=1;
 		}
 		this.setState({cells:arr});
 	}
+
+	_findBrdSqIds(arr){
+	    //x99 y9900
+	    const max_X = 99;
+	    const max_Y = 9900;
+	    const min_X = 0;
+	    const min_Y = 0;
+	    const RW_LNGTH = 100;
+
+	    let brdSqs = [[1,0],[-1,0],[0,RW_LNGTH],
+	          [0,-RW_LNGTH],[1,RW_LNGTH],[-1,-RW_LNGTH],
+	          [1,-RW_LNGTH],[-1,RW_LNGTH]];
+
+	    let squares = [];
+
+	    for(let i=0;i<brdSqs.length;i++){
+	      let x = arr[0] + brdSqs[i][0];
+	      let y = arr[1] + brdSqs[i][1];
+	      if(x<min_X){
+	        x= max_X;
+	      } else if(x>max_X){
+	        x= min_X
+	      }
+
+	      if(y<min_Y){
+	        y= max_Y;
+	      } else if(y>max_Y){
+	        y= min_Y
+	      }
+
+	      squares.push(x+y);
+	    }
+
+	    return squares;
+  	}
 
 	componentDidMount() {
 		this._generateCells();
