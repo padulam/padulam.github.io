@@ -49,10 +49,20 @@ class Board extends React.Component {
 
 			let brdSqIds = this._findBrdSqIds([x,y]);
 
-			let cellType = type[Math.floor((Math.random()*2)+1)];
+			let cellType = "wall"//type[Math.floor((Math.random()*2)+1)];
 			arr.push(<Tile id={i} brdSqIds={brdSqIds} type={cellType}/>);
 			x+=1;
 		}
+		for(let i = 0;i<500;i++){
+			let sqId = Math.floor((Math.random()*10000)+1);
+			if(arr[sqId].props.type!=="area"){
+				for(let j=0;j<arr[sqId].props.brdSqIds.length;j++){
+					arr[arr[sqId].props.brdSqIds[j]].props.type="area";
+				}
+				arr[sqId].props.type="area";
+			}
+		}
+
 		this.setState({cells:arr});
 	}
 
