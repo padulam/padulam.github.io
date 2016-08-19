@@ -47,13 +47,13 @@ class Board extends React.Component {
 				y+=RW_LNGTH;
 			}
 
-			let brdSqIds = this._findBrdSqIds([x,y]);
+			let brdSqIds = this._findBrdSqIds([x,y],true);
 
 			let cellType = "wall"
 			arr.push(<Tile id={i} brdSqIds={brdSqIds} type={cellType}/>);
 			x+=1;
 		}
-		for(let i = 0;i<100;i++){
+		for(let i = 0;i<500;i++){
 			let sqId = Math.floor((Math.random()*10000)+1);
 			if(arr[sqId].props.type!=="area"){
 				let cellFill = false;
@@ -62,13 +62,16 @@ class Board extends React.Component {
 					if(arr[arr[sqId].props.brdSqIds[j]].props.type==="area"){
 						cellFill=true;
 					}
-					
 					j++;
 				}
 
 				if(cellFill===false){
 					for(let k=0;k<arr[sqId].props.brdSqIds.length;k++){
-						arr[arr[sqId].props.brdSqIds[k]].props.type="area";
+						let currBrd = arr[arr[sqId].props.brdSqIds[k]];
+						for(let l =0;l<arr[currBrd.props.id].props.brdSqIds.length;l++){
+							arr[arr[currBrd.props.id].props.brdSqIds[l]].props.type = "area";
+						}
+						currBrd.props.type="area";
 					}
 					arr[sqId].props.type="area";
 				}
@@ -78,38 +81,36 @@ class Board extends React.Component {
 		this.setState({cells:arr});
 	}
 
-	_findBrdSqIds(arr){
+	_findBrdSqIds(arr,firstPass){
 	    //x99 y9900
 	    const max_X = 99;
 	    const max_Y = 9900;
 	    const min_X = 0;
 	    const min_Y = 0;
-	    //let RW_LNGTH = 100;
+	    const RW_LNGTH = 100;
 
 	    let squares = [];
 		
-		for(let i = 1;i<2;i++){
-			let RW_LNGTH = 100*i;
-		    let brdSqs = [[i,0],[-i,0],[i-1,RW_LNGTH],
-		          [i-1,-RW_LNGTH],[i,RW_LNGTH],[-i,-RW_LNGTH],
-		          [i,-RW_LNGTH],[-i,RW_LNGTH]];
+	    let brdSqs = [[1,0],[-1,0],[0,RW_LNGTH],
+	          [0,-RW_LNGTH],[1,RW_LNGTH],[-1,-RW_LNGTH],
+	          [1,-RW_LNGTH],[-1,RW_LNGTH]];
 
-		    for(let j=0;j<brdSqs.length;j++){
-		      let x = arr[0] + brdSqs[j][0];
-		      let y = arr[1] + brdSqs[j][1];
-		      if(x<min_X||x>max_X){
-		        x=null;
-		      }
+	    for(let i=0;i<brdSqs.length;i++){
+	      let x = arr[0] + brdSqs[i][0];
+	      let y = arr[1] + brdSqs[i][1];
+	      if(x<min_X||x>max_X){
+	        x=null;
+	      }
 
-		      if(y<min_Y||y>max_Y){
-		        y= null;
-		      }
-			
-			  if(x!==null&&y!==null){
-				squares.push(x+y);
-			  }
-		    }
-		}
+	      if(y<min_Y||y>max_Y){
+	        y= null;
+	      }
+		
+		  if(x!==null&&y!==null){
+			squares.push(x+y);
+		  }
+	    }
+
 	    return squares;
   	}
 
