@@ -88,8 +88,9 @@ class RogueApp extends React.Component {
 			let rnd = Math.floor(Math.random()*this.state.tiles);
 			if(arr[rnd].props.type==="area"){
 				arr[rnd].props.type="enemy";
+				let level = Math.floor(Math.random()*2)+1;
 				let enemies = this.state.enemies;
-				enemies.push({location:rnd, health: 100*this.state.floor});
+				enemies.push({location:rnd, health: 100*this.state.floor,level: level});
 				this.setState({enemies: enemies});
 				i++;
 			}
@@ -482,7 +483,7 @@ class RogueApp extends React.Component {
 						this._updateXpAndLevel(this.state.xp,50);
 						chngType = "area";
 					}else{
-						let playerHealth = this._fightPlayer(this.state.health,this.state.floor*5);
+						let playerHealth = this._fightPlayer(this.state.health,this._findEnemyLevel(newPstn));
 						if(playerHealth<=0){
 							alert("You lose!");
 							this._restartGame();
@@ -499,7 +500,7 @@ class RogueApp extends React.Component {
 						alert("You win!");
 						this._restartGame();
 					}else{
-						let playerHealth = this._fightPlayer(this.state.health,50);
+						let playerHealth = this._fightPlayer(this.state.health, 4);
 						if(playerHealth<=0){
 							alert("You lose!");
 							this._restartGame();
@@ -578,6 +579,14 @@ class RogueApp extends React.Component {
 		}
 	}
 
+	_findEnemyLevel(id){
+		for(let i=0;this.state.enemies.length;i++){
+			if(this.state.enemies[i].location===id){
+				return this.state.enemies[i].level;
+			}
+		}
+	}
+
 	_updateWeapon(floor){
 		switch(floor){
 			// case 1:
@@ -623,7 +632,9 @@ class RogueApp extends React.Component {
 		return  enemyHealth-playerAttack;
 	}
 
-	_fightPlayer(playerHealth,maxHp){
+	_fightPlayer(playerHealth, level){
+		let maxHp=level*50;
+		console.log(level);
 		let enemyAttack = Math.floor(Math.random()*maxHp)+1;
 		let health = playerHealth - enemyAttack;
 		this.setState({health:health});
@@ -647,7 +658,6 @@ class RogueApp extends React.Component {
 	}
 }
 
-
 class Tile extends React.Component {
 	render(){
 		let fog;
@@ -663,4 +673,4 @@ class Tile extends React.Component {
 	}
 }
 
-ReactDOM.render(<RogueApp />, document.getElementById('rogue-app'))
+ReactDOM.render(<RogueApp />, document.getElementById('rogue-app'));
