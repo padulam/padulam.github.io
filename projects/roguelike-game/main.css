@@ -1,0 +1,78 @@
+body {
+  overflow: hidden;
+  background-color: black;
+}
+
+.wall {
+  background-color: grey;
+}
+
+.area {
+  background-color: white;
+}
+
+.weapon {
+  background-color: gold;
+}
+
+.game-info {
+  padding-right: 25px;
+}
+
+.player {
+  background-color: blue;
+}
+.player:focus {
+  outline: none;
+}
+
+.big-boss {
+  background-color: #990012;
+}
+
+.health {
+  background-color: green;
+}
+
+.enemy {
+  background-color: red;
+}
+
+.hall {
+  background-color: white;
+}
+
+.fog {
+  background-color: black;
+}
+
+#board {
+  background-color: black;
+  width: 1000px;
+  height: 600px;
+  overflow-y: scroll;
+  outline: none;
+}
+
+.cell {
+  float: left;
+  height: 10px;
+  width: 10px;
+  font-size: 6pt;
+}
+
+#rogue-app {
+  width: 1000px;
+  height: 720px;
+  margin: 3% auto;
+  border: 10px solid silver;
+  overflow: hidden;
+}
+
+.title {
+  background-color: black;
+  height: 100px;
+  width: 1020px;
+  color: white;
+  border-bottom: 5px solid silver;
+}
