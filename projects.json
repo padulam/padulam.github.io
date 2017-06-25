@@ -124,5 +124,11 @@
 		"name": "Nightlife Coordination App",
 		"url": "https://padulam-nightlife-app.herokuapp.com/",
 		"screenshot": "images/nightlight_coord_app.png"
+	},
+	{
+		"id": 22,
+		"name": "Chart the Stock Market App",
+		"url": "https://padulam-stock-market-app.herokuapp.com/",
+		"screenshot": "images/stock_mrkt_app.png"
 	}
 ]
