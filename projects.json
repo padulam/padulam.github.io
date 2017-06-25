@@ -130,5 +130,11 @@
 		"name": "Chart the Stock Market App",
 		"url": "https://padulam-stock-market-app.herokuapp.com/",
 		"screenshot": "images/stock_mrkt_app.png"
+	},
+	{
+		"id": 23,
+		"name": "Book Trading App",
+		"url": "https://padulam-book-trading-app.herokuapp.com/",
+		"screenshot": "images/book_trading_app.png"
 	}
 ]
