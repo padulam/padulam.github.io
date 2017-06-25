@@ -136,5 +136,11 @@
 		"name": "Book Trading App",
 		"url": "https://padulam-book-trading-app.herokuapp.com/",
 		"screenshot": "images/book_trading_app.png"
+	},
+	{
+		"id": 24,
+		"name": "Pinterest Clone",
+		"url": "https://padulam-image-sharing-app.herokuapp.com/",
+		"screenshot": "images/pinterest_clone.png"
 	}
 ]
